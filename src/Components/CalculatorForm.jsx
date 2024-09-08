@@ -31,7 +31,7 @@ const CalculatorForm = () => {
 
         const finalAmount = totalAmount + compoundInterest
               
-        setResult(finalAmount); 
+        setResult(finalAmount.toFixed(3)); 
     };
 
     const setPeriodicity = () => {
@@ -76,7 +76,7 @@ const CalculatorForm = () => {
             </div>
 
             <div>
-                <label>Timpo depositos: </label>
+                <label>Tiempo depositos: </label>
                 <select value={depositTiming} onChange={(e) => setDepositTiming(e.target.value)}>
                     <option value="Inicio">Haces los depósitos al inicio de cada periodo</option>
                     <option value="Final">Haces los depósitos al final de cada periodo</option>
