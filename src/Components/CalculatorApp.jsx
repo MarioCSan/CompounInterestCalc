@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CalculatorForm from './CalculatorForm';
-import Results from './Results';
+
 
 const CalculatorApp = () => {
   const [calculationData, setCalculationData] = useState(null);
