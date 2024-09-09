@@ -26,7 +26,7 @@ const CalculatorApp = () => {
     <div className='container'>
      
       <div className='container-calculator'>
-      <h1>Calculadora de interes compuesto</h1>
+      <h1>Calculadora de interés compuesto</h1>
        <select className='selector'>
         <option>¿Cuánto puedo ahorrar?</option>
         <option>¿Cuánto tardaré en alcanzar mi objetivo de ahorro?</option>
