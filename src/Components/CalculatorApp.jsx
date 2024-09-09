@@ -6,26 +6,24 @@ const CalculatorApp = () => {
   const [calculationData, setCalculationData] = useState(null);
 
   const handleFormSubmit = (data) => {
-    // Aquí iría la lógica para calcular los resultados según los datos
-    const result = calculateResults(data); // Función de cálculo
-    setCalculationData(result);
+    const result = calculateResults(data); 
+    // setCalculationData(result);
   };
 
   const calculateResults = (data) => {
     // Lógica para calcular el ahorro y el interés acumulado
     // (esta parte variará según las fórmulas que quieras usar)
     return {
-      totalSavings: 13730.62,
-      initialBalance: 1000,
-      periodicDeposits: 12000,
-      totalInterest: 730.62,
+      totalSavings: data.totalSavings,
+      initialBalance: data.initialBalance,
+      periodicDeposits: data.periodicDeposits,
+      totalInterest: data.totalInterest,
       graphData: { /* datos para el gráfico */ },
     };
   };
 
   return (
     <div className='container'>
-
      
       <div className='container-calculator'>
       <h1>Calculadora de interes compuesto</h1>
