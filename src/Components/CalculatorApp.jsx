@@ -6,8 +6,8 @@ const CalculatorApp = () => {
   const [calculationData, setCalculationData] = useState(null);
 
   const handleFormSubmit = (data) => {
-    const result = calculateResults(data); 
-    // setCalculationData(result);
+    const result = calculateResults(data); // Función de cálculo
+    setCalculationData(result);
   };
 
   const calculateResults = (data) => {
@@ -35,6 +35,8 @@ const CalculatorApp = () => {
         <option>¿Cuánto tardaré en rentabilizar mi inversión?</option> 
       </select>
       <CalculatorForm onSubmit={handleFormSubmit} />
+
+      {calculationData}
       </div>
     </div>
   );
