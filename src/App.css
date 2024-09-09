@@ -1,38 +1,153 @@
-.App {
+body{
+  background-color: #8da9ca;
+  width: 100%;
+  height: 100%;
+}
+/* Estilo general del contenedor */
+.container-calculator {
+  width: 100%;
+  max-width: 600px; /* Ajustamos el ancho para que sea más espacioso */
+  padding: 30px;
+  background-color: #f9fff6; /* Fondo suave */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  border-radius: 10px; /* Bordes redondeados */
+  margin: 40px auto; /* Centra el contenedor */
+  border: 1px solid #ddd; /* Borde sutil */
+  font-family: Arial, sans-serif; /* Tipografía moderna */
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px; /* Espacio debajo del título */
+  font-weight: bold;
+}
+
+.selector{
+  padding-bottom: 3%;
+}
+.container-calculator h1 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px; /* Espacio debajo del título */
+  font-weight: bold;
+}
+
+/* Formulario */
+.container-calculator form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre los campos del formulario */
+}
+
+.container-calculator label {
+  font-size: 14px;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 5px; /* Separación entre etiqueta y campo */
+}
+.small-input{
+  width: 25% !important;
+}
+.mid-input{
+  width: 46% !important;
+}
+.big-input{
+  width: 93% !important;
+}
+.mini-input{
+  width: 7% !important;
+  background-color: #b9b9b9 !important;
+  padding-right: 3px !important;
+}
+/* Inputs, selects y estilo de moneda */
+.container-calculator input,
+.container-calculator select {
+  width: 100%;
+  padding: 12px; /* Padding uniforme */
+  font-size: 16px;
+  border-radius: 6px; /* Bordes redondeados */
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05); /* Sombra ligera */
+  background-color: #fefefe; /* Fondo blanco para los campos */
+}
+
+/* Efecto en el focus de los inputs */
+.container-calculator input:focus,
+.container-calculator select:focus {
+  outline: none;
+  border-color: #28a745; /* Color verde en el borde cuando está enfocado */
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.3); /* Sombra cuando se hace foco */
+}
+
+button{
+  margin-top: 3%;
+}
+/* Estilo de botones */
+.container-calculator button {
+  padding: 12px;
+  background-color: #28a745; /* Botón verde */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra en el botón */
+}
+
+.container-calculator button:hover {
+  background-color: #218838; /* Verde oscuro al hacer hover */
+}
+
+/* Sección de resultados */
+.result-section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa; /* Fondo gris claro para la sección de resultados */
+  border-radius: 8px;
+  border: 1px solid #ddd;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.result-section h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.result-section p {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Estilo de las gráficas o elementos visuales */
+.chart-section {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .container-calculator {
+      width: 90%;
+      padding: 20px;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .container-calculator button {
+      font-size: 14px;
+      padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .result-section h2 {
+      font-size: 24px;
   }
 }

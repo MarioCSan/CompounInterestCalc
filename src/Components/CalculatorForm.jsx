@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 const CalculatorForm = () => {
     // Estados para almacenar los valores del formulario
     const [initialBalance, setInitialBalance] = useState(1000);
@@ -41,7 +40,7 @@ const CalculatorForm = () => {
        } else if (depositFrequency === "Bisemanal"){
             return 26;
        }
-       if (depositFrequency == "Mensual"){
+       if (depositFrequency === "Mensual"){
             return 12;
        } else {
            return 1;
@@ -49,25 +48,30 @@ const CalculatorForm = () => {
     }
     return (
         <div>
-            <h2>Calculadora de Ahorro</h2>
             <div>
                 <label>Deposito Inicial: </label>
-                <input
+                <input 
                     type="number"
                     placeholder="Balance Inicial (€)"
                     value={initialBalance}
-                    onChange={(e) => setInitialBalance(e.target.value)} />
+                    onChange={(e) => setInitialBalance(e.target.value)} 
+                    className='big-input'/>
+                
+                <input value={"€"} className='mini-input' disabled={`true`}/>
+
             </div>
             <div>
-                <label>Depositos periodicos: </label>
+                <label>Depositos periodicos: </label><br/>
                 <input
                     type="number"
                     placeholder="Depósito Periódico (€)"
                     value={depositAmount}
                     onChange={(e) => setDepositAmount(e.target.value)}
-                />
+                    className='mid-input'
+                /> 
+                <input value={"€"} className='mini-input' disabled={`true`}/>
             
-                <select value={depositFrequency} onChange={(e) => setDepositFrequency(e.target.value)}>
+                <select value={depositFrequency} onChange={(e) => setDepositFrequency(e.target.value)} className='mid-input'>
                     <option value="Semanal">Semanalmente (52/año) </option>
                     <option value="Bisemanal">Bi-Semanal (26/año)</option>
                     <option value="Mensual">Mensual (12/año)</option>
@@ -91,7 +95,9 @@ const CalculatorForm = () => {
                     placeholder="Ratio Interés Anual (%)"
                     value={interestRate}
                     onChange={(e) => setInterestRate(e.target.value)}
+                    className='big-input'
                 />
+                <input value={"%"} className='mini-input' disabled={`true`}/>
             </div>
 
             <div>
@@ -111,8 +117,8 @@ const CalculatorForm = () => {
 
             {result !== null && (
                 <div>
-                    <h3>Resultado:</h3>
-                    <p>El total calculado es: {result} €</p>
+                    <p>El retorno total de la inversión es:</p>
+                    <h3>{result} €</h3>
                 </div>
             )}
         </div>

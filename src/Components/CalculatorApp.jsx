@@ -24,10 +24,20 @@ const CalculatorApp = () => {
   };
 
   return (
-    <div>
-      <h1>Calculadora de Ahorros</h1>
+    <div className='container'>
+
+     
+      <div className='container-calculator'>
+      <h1>Calculadora de interes compuesto</h1>
+       <select className='selector'>
+        <option>¿Cuánto puedo ahorrar?</option>
+        <option>¿Cuánto tardaré en alcanzar mi objetivo de ahorro?</option>
+        <option>¿Cuánto necesito ahorrar para cada periodo para alcanzar mi objetivo de ahorro?</option>
+        <option>¿Que porcentaje de interés necesito para alcanzar mi objetivo de ahorro?</option>
+        <option>¿Cuánto tardaré en rentabilizar mi inversión?</option> 
+      </select>
       <CalculatorForm onSubmit={handleFormSubmit} />
-      {calculationData && <Results data={calculationData} />}
+      </div>
     </div>
   );
 };
