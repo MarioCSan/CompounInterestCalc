@@ -7,7 +7,7 @@ const CalculatorApp = () => {
 
   const handleFormSubmit = (data) => {
     const result = calculateResults(data); // Función de cálculo
-    setCalculationData(result);
+    setCalculationData(result.toLocaleString('es-ES');
   };
 
   const calculateResults = (data) => {
