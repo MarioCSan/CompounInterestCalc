@@ -73,13 +73,21 @@ const CalculatorApp = () => {
       padding: "2rem",
     }}>
       <div style={{ textAlign: "center" }}>
-        <h1 style={{ color: "#14FFEC", fontSize: "3rem", top: "1rem", marginBottom: "0%" }} >
+        <h1 style={{
+          color: "#14FFEC",
+          fontSize: "clamp(1.5rem, 5vw, 3rem)",
+          marginBottom: "1rem",
+          textAlign: "center",
+          padding: "0 1rem",                   
+          wordBreak: "break-word",       
+        }}>
           Calculadora de Interés Compuesto
         </h1>
+
         <p style={{ color: "#C084FC", fontSize: "1.2rem", marginBottom: "2rem" }}>
           Calcula el crecimiento de tu inversión a lo largo del tiempo.<br />
           {/* <div style={{ textAlign: "center" }}>Por Mario Canales</div> */}
-          </p></div>
+        </p></div>
       <CalculatorForm
         initial={initial}
         setInitial={setInitial}
