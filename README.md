@@ -19,7 +19,7 @@ Clean, modular React code (with Hooks)
 - Add a slider to switch the languaje ES-EN
 
 ## New version
-![image](https://github.com/user-attachments/assets/e3134ba2-d8bf-4250-a43e-2880afb36351)
+![image](https://github.com/user-attachments/assets/fb0ee71f-adff-4929-947e-6941742fe9d7)
 ![image](https://github.com/user-attachments/assets/6f0111db-fba7-4875-93a1-bf0794392c91)
 ![image](https://github.com/user-attachments/assets/30841f17-7051-4796-adf4-072d92d21585)
 
