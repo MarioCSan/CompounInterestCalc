@@ -9,7 +9,7 @@ const App = () => {
       {/* <header className="App-header">
         <h1>Calculadora de Interés Compuesto</h1>
       </header> */}
-      <main>
+      <main >
         <CalculatorApp />
       </main>
     </div>
