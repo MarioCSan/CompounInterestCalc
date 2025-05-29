@@ -1,128 +1,90 @@
-import React, { useState } from 'react';
-const CalculatorForm = () => {
-    // Estados para almacenar los valores del formulario
-    const [initialBalance, setInitialBalance] = useState(1000);
-    const [depositAmount, setDepositAmount] = useState(100);
-    const [interestRate, setInterestRate] = useState(1.000);
-    const [duration, setDuration] = useState(5);
-    const [depositFrequency, setDepositFrequency] = useState("Mensual"); // Frecuencia de depósitos
-    const [depositTiming, setDepositTiming] = useState("Inicio"); // Momento de los depósitos
-    const [result, setResult] = useState(null); // Resultado del cálculo
+// CalculatorForm.jsx
+import React from "react";
 
-    // Función para manejar el cálculo cuando se presiona el botón "Calcular"
-    const handleCalculate = () => {
-        // Validar que todos los campos tengan valores válidos
-        if (!initialBalance || !depositAmount || !interestRate || !duration) {
-            alert("Por favor, complete todos los campos con valores válidos.");
-            return;
-        }
-        var n = setPeriodicity();
-        const initialBalanceNumber = parseFloat(initialBalance);
-        const depositAmountNumber = parseFloat(depositAmount);
-        const interestRateNumber = parseFloat(interestRate) / 100;
-        const durationNumber = parseFloat(duration);
+const CalculatorForm = ({
+  initial,
+  setInitial,
+  contribution,
+  setContribution,
+  frequency,
+  setFrequency,
+  rate,
+  setRate,
+  years,
+  setYears,
+  calculate,
+}) => {
+  return (
+    <div style={{
+      background: "#323232",
+      padding: "1.5rem",
+      borderRadius: "1rem",
+      maxWidth: "500px",
+      marginBottom: "2rem",
+      width: "100%",
+    }}>
+      <div style={{ marginBottom: "1rem" }}>
+        <label>Cantidad inicial (€)</label>
+        <input type="number" value={initial} onChange={(e) => setInitial(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} />
+      </div>
 
-        const totalAmount = initialBalanceNumber * Math.pow(1 + interestRateNumber / n, n * durationNumber) 
-        + depositAmountNumber * ((Math.pow(1 + interestRateNumber / n, n * durationNumber) - 1) / (interestRateNumber / n));
+      <div style={{ marginBottom: "1rem" }}>
+        <label>Aportación recurrente (€)</label>
+        <input type="number" value={contribution} onChange={(e) => setContribution(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} />
+      </div>
 
-        // Calcular el interés ganado
-        const compoundInterest = totalAmount - (initialBalanceNumber + depositAmountNumber * n * durationNumber);
+      <div style={{ marginBottom: "1rem" }}>
+        <label>Frecuencia de aportación</label>
+        <select value={frequency} onChange={(e) => setFrequency(e.target.value)} style={{ width: "100%", padding: "0.5rem" }}>
+          <option value="weekly">Semanal</option>
+          <option value="biweekly">Cada dos semanas</option>
+          <option value="semimonthly">Quincenal</option>
+          <option value="monthly">Mensual</option>
+          <option value="yearly">Anual</option>
+        </select>
+      </div>
 
-        const finalAmount = totalAmount + compoundInterest
-              
-        setResult(finalAmount.toFixed(3)); 
-    };
-
-    const setPeriodicity = () => {
-       console.log(depositFrequency)
-       if (depositFrequency === "Semanal"){
-        return 52;
-       } else if (depositFrequency === "Bisemanal"){
-            return 26;
-       }
-       if (depositFrequency === "Mensual"){
-            return 12;
-       } else {
-           return 1;
-       }
-    }
-    return (
-        <div>
-            <div>
-                <label>Deposito Inicial: </label>
-                <input 
-                    type="number"
-                    placeholder="Balance Inicial (€)"
-                    value={initialBalance}
-                    onChange={(e) => setInitialBalance(e.target.value)} 
-                    className='big-input'/>
-                
-                <input value={"€"} className='mini-input' disabled={`true`}/>
-
-            </div>
-            <div>
-                <label>Depositos periodicos: </label><br/>
-                <input
-                    type="number"
-                    placeholder="Depósito Periódico (€)"
-                    value={depositAmount}
-                    onChange={(e) => setDepositAmount(e.target.value)}
-                    className='mid-input'
-                /> 
-                <input value={"€"} className='mini-input' disabled={`true`}/>
-            
-                <select value={depositFrequency} onChange={(e) => setDepositFrequency(e.target.value)} className='mid-input'>
-                    <option value="Semanal">Semanalmente (52/año) </option>
-                    <option value="Bisemanal">Bi-Semanal (26/año)</option>
-                    <option value="Mensual">Mensual (12/año)</option>
-                    <option value="Anual">Anual (1/año)</option>
-                </select>
-            </div>
-
-            <div>
-                <label>Tiempo depositos: </label>
-                <select value={depositTiming} onChange={(e) => setDepositTiming(e.target.value)}>
-                    <option value="Inicio">Haces los depósitos al inicio de cada periodo</option>
-                    <option value="Final">Haces los depósitos al final de cada periodo</option>
-                </select>
-
-            </div>
-
-            <div>
-                <label>Ratio interés Anual: </label>
-                <input
-                    type="number"
-                    placeholder="Ratio Interés Anual (%)"
-                    value={interestRate}
-                    onChange={(e) => setInterestRate(e.target.value)}
-                    className='big-input'
-                />
-                <input value={"%"} className='mini-input' disabled={`true`}/>
-            </div>
-
-            <div>
-                <label>Duración: </label>
-                <input
-                    type="number"
-                    placeholder="Duración (años)"
-                    value={duration}
-                    onChange={(e) => setDuration(e.target.value)}
-                />
-
-            </div>
-
-            <div>
-                <button onClick={handleCalculate}>Calcular</button>
-            </div>
-
-            {result !== null && (
-                <div>
-                    <p>El retorno total de la inversión es:</p>
-                    <h3>{result} €</h3>
-                </div>
-            )}
+      <div style={{ marginBottom: "1rem" }}>
+        <label>Tipo de interés anual</label>
+        <div style={{ display: "flex", gap: "0.5rem" }}>
+          <input type="number" value={rate} onChange={(e) => setRate(e.target.value)} style={{ flex: 1, padding: "0.5rem" }} />
+          <span style={{ width: "40px", textAlign: "center", lineHeight: "2.5", backgroundColor: "#444", borderRadius: "4px" }}>%</span>
         </div>
-    );
+      </div>
+
+      <div style={{ marginBottom: "1rem" }}>
+        <label>Años de inversión</label>
+        <input type="number" value={years} onChange={(e) => setYears(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} />
+      </div>
+
+      <button
+        onClick={calculate}
+        style={{
+          backgroundColor: "#C084FC",
+          color: "#000",
+          padding: "0.75rem 1.25rem",
+          border: "none",
+          borderRadius: "0.75rem",
+          width: "100%",
+          fontWeight: "bold",
+          fontSize: "1.1rem",
+          cursor: "pointer",
+          transition: "transform 0.2s ease, box-shadow 0.3s ease",
+          fontFamily: 'Syncopate'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "scale(1.05)";
+          e.currentTarget.style.boxShadow = "0 0 30px #14FFEC, 0 0 40px #14FFEC";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "scale(1)";
+          e.currentTarget.style.boxShadow = "none";
+        }}
+      >
+        Calcular
+      </button>
+    </div>
+  );
 };
 
 export default CalculatorForm;
