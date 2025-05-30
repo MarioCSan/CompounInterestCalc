@@ -22,20 +22,25 @@ const CalculatorForm = ({
             borderRadius: "1rem",
             maxWidth: "500px",
             marginBottom: "2rem",
-            width: "30%",
+            width: "40%",
             gap: "8rem",
         }}>
             <div style={{ marginBottom: "1rem" }}>
-                <label>Cantidad inicial (€)</label>
-                <input type="number" value={initial} onChange={(e) => setInitial(e.target.value)}
-                    className="form-input"
-                />
+                <label>Cantidad inicial</label>
+                <div style={{ display: "flex", gap: "0.0rem" }}>
+                    <input type="number" value={initial} onChange={(e) => setRate(e.target.value)} className="form-input"
+                    />
+                    <span style={{ width: "40px", textAlign: "center", lineHeight: "2.5", backgroundColor: "#444", borderRadius: "4px" }}>€</span>
+                </div>
             </div>
 
             <div style={{ marginBottom: "1rem" }}>
-                <label>Aportación recurrente (€)</label>
-                <input type="number" value={contribution} onChange={(e) => setContribution(e.target.value)} className="form-input"
-                />
+                <label>Aportación recurrente</label>
+                <div style={{ display: "flex", gap: "0.0rem" }}>
+                    <input type="number" value={contribution} onChange={(e) => setRate(e.target.value)} className="form-input"
+                    />
+                    <span style={{ width: "40px", textAlign: "center", lineHeight: "2.5", backgroundColor: "#444", borderRadius: "4px" }}>€</span>
+                </div>
             </div>
 
             <div style={{ marginBottom: "1rem" }}>
