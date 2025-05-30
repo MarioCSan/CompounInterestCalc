@@ -64,7 +64,7 @@ const CalculatorApp = () => {
     <div style={{
       backgroundColor: "#212121",
       color: "#FFFFFF",
-      background: "linear-gradient(135deg, #0F0C29, #302B63,rgb(138, 81, 195))",
+      background: "linear-gradient(135deg, #0F0C29, #302B63,#8a51c3)",
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
