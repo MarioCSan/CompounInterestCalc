@@ -22,7 +22,7 @@ const CalculatorForm = ({
             borderRadius: "1rem",
             maxWidth: "500px",
             marginBottom: "2rem",
-            width: "40%",
+            width: "60%",
             gap: "8rem",
         }}>
             <div style={{ marginBottom: "1rem" }}>
