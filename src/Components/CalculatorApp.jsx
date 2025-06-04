@@ -73,8 +73,6 @@ const CalculatorApp = () => {
       padding: "2rem",
     }}>
       <div style={{ textAlign: "center" }}>
-        <img src="../../../favicon.ico" alt="coin" style={{ width: "50px", height: "50px", marginBottom: "1rem" }} />
-
         <h1 style={{
           color: "#14FFEC",
           fontSize: "clamp(1.5rem, 5vw, 3rem)",
