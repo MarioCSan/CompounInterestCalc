@@ -69,7 +69,6 @@ const CalculatorForm = ({
                 <input type="number" value={years} onChange={(e) => setYears(e.target.value)} s className="form-input"
                 />
             </div>
-
             <button
                 onClick={calculate}
                 style={{
